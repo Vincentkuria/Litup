@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".Mainpage">
+
+    <View
+        android:id="@+id/searchbar"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/searchbar"/>
+
+    <ImageView
+        android:id="@+id/menu"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/ic_menu"
+        android:layout_alignTop="@id/searchbar"
+        android:layout_alignEnd="@id/searchbar"
+        android:layout_alignBottom="@id/searchbar"
+        android:layout_marginEnd="15dp"
+        android:contentDescription="@string/description"
+        />
+
+    <ImageView
+        android:id="@+id/group"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignTop="@id/searchbar"
+        android:layout_alignBottom="@id/searchbar"
+        android:layout_toStartOf="@+id/menu"
+        android:src="@drawable/ic_group"
+        android:layout_marginHorizontal="5dp"
+        android:contentDescription="@string/description"/>
+
+    <ImageView
+        android:id="@+id/search"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignTop="@id/searchbar"
+        android:layout_alignBottom="@id/searchbar"
+        android:layout_toStartOf="@id/group"
+        android:src="@drawable/ic_search_1_"
+        android:layout_toRightOf="@+id/notification"
+        android:contentDescription="@string/description"
+        />
+
+    <ImageView
+        android:id="@+id/chat"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/ic_chat"
+        android:layout_alignTop="@id/searchbar"
+        android:layout_alignBottom="@id/searchbar"
+        android:layout_alignStart="@+id/searchbar"
+        android:layout_marginStart="15dp"
+        android:contentDescription="@string/description"
+        />
+
+    <ImageView
+        android:id="@+id/notification"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/ic_bell"
+        android:layout_alignTop="@id/searchbar"
+        android:layout_alignBottom="@id/searchbar"
+        android:layout_toEndOf="@id/chat"
+        android:layout_marginHorizontal="5dp"
+        android:contentDescription="@string/description"
+        />
+
+    <ImageView
+        android:id="@+id/notifheart"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:src="@drawable/ic_heart"
+        android:layout_alignTop="@+id/chat"
+        android:layout_alignEnd="@id/chat"
+        android:contentDescription="@string/description"
+        />
+
+    <ImageView
+        android:id="@+id/notifdot"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:src="@drawable/ic_notificationdot"
+        android:layout_alignTop="@id/notification"
+        android:layout_alignEnd="@id/notification"
+        android:contentDescription="@string/description" />
+
+    <EditText
+        android:visibility="gone"
+        android:layout_width="250dp"
+        android:layout_height="30dp"
+        android:layout_alignParentBottom="true"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/main_recyclerview"
+        android:layout_below="@+id/searchbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+</RelativeLayout>

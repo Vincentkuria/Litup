@@ -29,7 +29,13 @@ public class Groupdate extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+        MainActivity.in_mainpage=false;
         return inflater.inflate(R.layout.fragment_groupdate, container, false);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        MainActivity.in_mainpage=false;
     }
 }

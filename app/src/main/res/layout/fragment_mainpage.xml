@@ -94,17 +94,64 @@
         android:contentDescription="@string/description" />
 
     <EditText
+        android:textColor="@color/white"
+        android:lines="1"
+        android:maxLength="25"
         android:visibility="gone"
+        android:gravity="start"
+        android:id="@+id/search_area"
         android:layout_width="250dp"
-        android:layout_height="30dp"
-        android:layout_alignParentBottom="true"
-        />
+        android:layout_height="20dp"
+        android:paddingVertical="5dp"
+        android:paddingHorizontal="10dp"
+        android:background="@drawable/search_background" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/main_recyclerview"
-        android:layout_below="@+id/searchbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_below="@+id/searchbar"
+        android:layout_marginTop="0dp" />
+
+    <LinearLayout
+        android:id="@+id/menu_dropdown"
+        android:layout_below="@+id/searchbar"
+        android:layout_alignParentEnd="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/purple"
+        android:theme="@style/ThemeOverlay.MaterialComponents.Dark"
+        android:elevation="6dp"
+        android:layout_marginHorizontal="10dp"
+        android:padding="5dp"
+        android:visibility="gone">
+        <TextView
+            android:id="@+id/create_group_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/create_group_date"
+            android:layout_marginTop="5dp"
+            />
+        <TextView
+            android:id="@+id/post_photo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/post_photo"
+            android:layout_marginTop="5dp"/>
+        <TextView
+            android:id="@+id/settings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/settings"
+            android:layout_marginTop="5dp"/>
+        <TextView
+            android:id="@+id/logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/logout"
+            android:layout_marginTop="5dp"/>
+    </LinearLayout>
 
 
 </RelativeLayout>

@@ -7,8 +7,8 @@ import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
     private ViewPager2 viewPager2;
-    Boolean in_mainpage=false;
-    Boolean search_open=false;
+    static Boolean in_mainpage=false;
+    static Boolean search_open=false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

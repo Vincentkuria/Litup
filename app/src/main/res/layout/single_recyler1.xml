@@ -26,6 +26,6 @@
         android:layout_alignTop="@id/imageView1"
         android:layout_margin="20dp"
         android:layout_alignEnd="@id/imageView1"
-        />
+        android:contentDescription="@string/description" />
 
 </RelativeLayout>

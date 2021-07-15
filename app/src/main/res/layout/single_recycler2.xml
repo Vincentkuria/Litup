@@ -52,7 +52,7 @@
             android:contentDescription="@string/description" />
 
         <ImageView
-            android:visibility="gone"
+            android:visibility="invisible"
             android:id="@+id/after_like"
             android:layout_width="55dp"
             android:layout_height="55dp"

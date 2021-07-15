@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:scrollbars="none"
+    tools:context=".Profile">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/profile_image"
+            android:layout_width="150dp"
+            android:layout_height="200dp"
+            android:src="@drawable/model4"
+            android:scaleType="centerCrop"
+            app:shapeAppearanceOverlay="@style/corner_style"
+            android:layout_centerHorizontal="true"
+            android:layout_marginVertical="20dp"
+            />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/video_call1"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_toEndOf="@id/profile_image"
+            android:layout_alignBottom="@id/profile_image"
+            android:background="@drawable/circle_background"
+            android:layout_marginHorizontal="10dp"
+            android:padding="10dp"
+            >
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_video_call"
+                android:contentDescription="@string/description" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_above="@+id/video_call1"
+            android:layout_margin="10dp"
+            android:layout_toEndOf="@id/profile_image"
+            android:background="@drawable/circle_background"
+            android:padding="10dp">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_send"
+                android:contentDescription="@string/description" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:textColor="@color/white"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginVertical="10dp"
+            android:id="@+id/profile_nm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Name: Avril kenya"
+            android:layout_below="@id/profile_image"
+            />
+
+        <TextView
+            android:textColor="@color/white"
+            android:layout_marginBottom="10dp"
+            android:layout_marginHorizontal="20dp"
+            android:id="@+id/profile_age"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Age: 25"
+            android:layout_below="@id/profile_nm"
+            />
+
+        <TextView
+            android:textColor="@color/white"
+            android:layout_marginBottom="10dp"
+            android:layout_marginHorizontal="20dp"
+            android:id="@+id/profile_height"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Height: Average"
+            android:layout_below="@id/profile_age"
+            />
+        <TextView
+            android:textColor="@color/white"
+            android:layout_marginBottom="10dp"
+            android:layout_marginHorizontal="20dp"
+            android:id="@+id/profile_hobbies"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hobbies: swimming, eating, cooking, \n \t\t\t\t\t\t\t dancing, gamer."
+            android:layout_below="@id/profile_height"
+            />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/profile_photo_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="750dp"
+            android:layout_below="@id/profile_hobbies"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/profile_photo_recycler"
+            android:layout_marginVertical="20dp"
+            android:layout_marginHorizontal="10dp">
+            <ImageView
+                android:id="@+id/ig_icon"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/instagram"
+                android:layout_marginHorizontal="10dp"
+                />
+            <TextView
+                app:layout_constraintStart_toEndOf="@id/ig_icon"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Click to know her more \n from her instagram posts "
+                android:textColor="@color/white"
+                android:layout_marginHorizontal="10dp"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
+
+</ScrollView>

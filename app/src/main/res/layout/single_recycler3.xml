@@ -32,7 +32,6 @@
         android:layout_height="wrap_content"
         android:layout_alignEnd="@id/single_recycler3"
         android:layout_alignBottom="@id/single_recycler3"
-        android:layout_centerInParent="true"
         android:layout_marginStart="30dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="23dp"

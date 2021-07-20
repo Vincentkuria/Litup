@@ -94,6 +94,7 @@
         android:contentDescription="@string/description" />
 
     <EditText
+        android:textCursorDrawable="@null"
         android:textColor="@color/white"
         android:lines="1"
         android:maxLength="25"
@@ -102,7 +103,7 @@
         android:id="@+id/search_area"
         android:layout_width="250dp"
         android:layout_height="20dp"
-        android:paddingVertical="5dp"
+        android:paddingVertical="2dp"
         android:paddingHorizontal="10dp"
         android:background="@drawable/search_background" />
 

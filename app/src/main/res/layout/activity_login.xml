@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Login">
+    <ImageView
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/loginlogo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/logo"
+        />
+
+    <EditText
+        android:background="@drawable/logininputtxt"
+        android:inputType="textEmailAddress"
+        android:layout_marginTop="100dp"
+        android:layout_below="@id/loginlogo"
+        android:id="@+id/logemail"
+        android:layout_centerHorizontal="true"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:drawableStart="@drawable/ic_email_24"
+        android:padding="5dp"
+        android:hint="Email"
+        />
+
+
+    <EditText
+        android:layout_below="@id/logemail"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/logininputtxt"
+        android:id="@+id/logpass"
+        android:layout_centerHorizontal="true"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:drawableStart="@drawable/ic_lock_24"
+        android:padding="5dp"
+        android:hint="Password"
+        android:inputType="textPassword"
+
+        />
+
+    <Button
+        android:id="@+id/loginbtn"
+        android:layout_below="@id/logpass"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LOGIN"
+        android:layout_marginTop="50dp"
+        />
+
+    <TextView
+        android:id="@+id/forgotpassword"
+        android:layout_below="@id/loginbtn"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Forgot password ?"
+        android:textColor="@color/dark_blue"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="40dp"
+        />
+
+    <Button
+        android:id="@+id/signupbtn"
+        android:layout_below="@id/forgotpassword"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SIGNUP"
+        android:layout_marginTop="50dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="signup if you are new on 20first"
+        android:layout_below="@id/signupbtn"
+        android:layout_centerHorizontal="true"
+        />
+
+
+</RelativeLayout>

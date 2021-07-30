@@ -19,9 +19,9 @@ public class Splashscreen extends AppCompatActivity {
         mRunnable=new Runnable() {
             @Override
             public void run() {
-                Intent goToMainActivity=new Intent(Splashscreen.this,MainActivity.class);
-                goToMainActivity.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                startActivity(goToMainActivity);
+                Intent goToLoginActivity=new Intent(Splashscreen.this,Login.class);
+                goToLoginActivity.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(goToLoginActivity);
 
             }
         };

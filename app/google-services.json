@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "827827017858",
+    "project_id": "first-7c5d6",
+    "storage_bucket": "first-7c5d6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:827827017858:android:b7ae22defd074c21a5fc9b",
+        "android_client_info": {
+          "package_name": "com.vinikuria.the20first"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "827827017858-30h46nkfmbi6u7pie4q23l8nvjcv3b3b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vinikuria.the20first",
+            "certificate_hash": "2ab8b235151aae7f99c01b2c22884667af82f0a3"
+          }
+        },
+        {
+          "client_id": "827827017858-8nt85c53lbktluc4uaems50j8h5mgror.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlXw9wwSKFHXJii_LMVGoyAr_XrXSl5OI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "827827017858-8nt85c53lbktluc4uaems50j8h5mgror.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".Signup">
+
+    <ImageView
+        android:layout_marginTop="40dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/signuplogo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/logo"
+        />
+
+    <EditText
+        android:id="@+id/signupemail"
+        android:background="@drawable/logininputtxt"
+        android:inputType="textEmailAddress"
+        android:layout_centerHorizontal="true"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:drawableStart="@drawable/ic_email_24"
+        android:padding="5dp"
+        android:hint="Email"
+        android:layout_marginTop="50dp"
+        android:layout_below="@id/signuplogo"
+        />
+
+    <TextView
+        android:id="@+id/signup_email_error_mess"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="invalid email adress"
+        android:textColor="#ff0000"
+        android:drawableStart="@drawable/ic_error_alart"
+        android:layout_below="@id/signupemail"
+        android:layout_alignEnd="@id/signupemail"
+        android:visibility="invisible"
+        />
+
+    <EditText
+        android:id="@+id/signuppass"
+        android:background="@drawable/logininputtxt"
+        android:inputType="textPassword"
+        android:layout_centerHorizontal="true"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:drawableStart="@drawable/ic_lock_24"
+        android:padding="5dp"
+        android:hint="Password"
+        android:layout_below="@id/signupemail"
+        android:layout_marginTop="50dp"
+        />
+
+    <EditText
+        android:id="@+id/signuppass_confirm"
+        android:background="@drawable/logininputtxt"
+        android:inputType="textPassword"
+        android:layout_centerHorizontal="true"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:drawableStart="@drawable/ic_lock_24"
+        android:padding="5dp"
+        android:hint="Confirm password"
+        android:layout_below="@id/signuppass"
+        android:layout_marginTop="50dp"
+        />
+
+    <TextView
+        android:id="@+id/signup_error_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/signuppass_confirm"
+        android:layout_alignEnd="@id/signuppass_confirm"
+        android:text="password does not match"
+        android:textColor="#FF0000"
+        android:drawableStart="@drawable/ic_error_alart"
+        android:visibility="invisible"
+        />
+
+    <Button
+        android:id="@+id/signupnextbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NEXT"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="50dp"
+        />
+
+</RelativeLayout>

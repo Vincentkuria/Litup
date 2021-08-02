@@ -4,9 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".Login">
     <ImageView
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="40dp"
         android:layout_centerHorizontal="true"
         android:id="@+id/loginlogo"
         android:layout_width="100dp"
@@ -15,11 +16,11 @@
         />
 
     <EditText
+        android:id="@+id/logemail"
         android:background="@drawable/logininputtxt"
         android:inputType="textEmailAddress"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="70dp"
         android:layout_below="@id/loginlogo"
-        android:id="@+id/logemail"
         android:layout_centerHorizontal="true"
         android:layout_width="300dp"
         android:layout_height="50dp"
@@ -28,12 +29,24 @@
         android:hint="Email"
         />
 
+    <TextView
+        android:id="@+id/email_error_mess"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="invalid email adress"
+        android:textColor="#ff0000"
+        android:drawableStart="@drawable/ic_error_alart"
+        android:layout_below="@id/logemail"
+        android:layout_alignEnd="@id/logemail"
+        android:visibility="invisible"
+        />
+
 
     <EditText
+        android:id="@+id/logpass"
         android:layout_below="@id/logemail"
         android:layout_marginTop="40dp"
         android:background="@drawable/logininputtxt"
-        android:id="@+id/logpass"
         android:layout_centerHorizontal="true"
         android:layout_width="300dp"
         android:layout_height="50dp"
@@ -42,6 +55,18 @@
         android:hint="Password"
         android:inputType="textPassword"
 
+        />
+
+    <TextView
+        android:id="@+id/login_error_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/logpass"
+        android:layout_alignEnd="@id/logpass"
+        android:text="wrong email or password"
+        android:textColor="#FF0000"
+        android:drawableStart="@drawable/ic_error_alart"
+        android:visibility="invisible"
         />
 
     <Button
@@ -61,7 +86,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Forgot password ?"
-        android:textColor="@color/dark_blue"
+        android:textColor="@color/white"
         android:layout_marginTop="3dp"
         android:layout_marginBottom="40dp"
         />
@@ -73,7 +98,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="SIGNUP"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         />
 
     <TextView
@@ -82,6 +107,8 @@
         android:text="signup if you are new on 20first"
         android:layout_below="@id/signupbtn"
         android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:textColor="@color/white"
         />
 
 

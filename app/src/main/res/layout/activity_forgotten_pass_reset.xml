@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ForgottenPassReset"
+    android:background="@drawable/background"
+    >
+
+    <TextView
+        android:id="@+id/forgotpass_mess"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Please enter your email adress\n An email will be sent to you to recover  "
+        android:textColor="@color/white"
+        android:textAlignment="center"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        />
+
+    <EditText
+        android:id="@+id/recovery_email"
+        android:layout_below="@id/forgotpass_mess"
+        android:background="@drawable/logininputtxt"
+        android:inputType="textEmailAddress"
+        android:layout_marginTop="40dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:drawableStart="@drawable/ic_email_24"
+        android:padding="5dp"
+        android:hint="Email"
+        />
+
+    <TextView
+        android:id="@+id/recovemail_er_mess"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="invalid email adress"
+        android:textColor="#ff0000"
+        android:drawableStart="@drawable/ic_error_alart"
+        android:layout_below="@id/recovery_email"
+        android:layout_alignEnd="@id/recovery_email"
+        android:visibility="invisible"
+        />
+
+    <Button
+        android:id="@+id/sendresetemail"
+        android:layout_below="@id/recovery_email"
+        android:layout_alignEnd="@id/recovery_email"
+        android:layout_marginTop="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SEND"
+        />
+
+</RelativeLayout>

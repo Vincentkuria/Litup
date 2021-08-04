@@ -1,9 +1,231 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".Getdetails">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/prof_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:scaleType="centerCrop"
+        app:shapeAppearanceOverlay="@style/circle_image"
+        android:background="@drawable/ic_account_circle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginVertical="20dp"
+        />
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/ic_plus"
+        android:layout_alignEnd="@id/prof_image"
+        android:layout_alignBottom="@id/prof_image"
+        />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_below="@id/prof_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        android:textColor="@color/white"
+        android:layout_alignStart="@id/username_input"
+        android:layout_marginTop="10dp"
+        />
+
+    <EditText
+        android:id="@+id/username_input"
+        android:layout_centerHorizontal="true"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:padding="5dp"
+        android:background="@drawable/textbackground"
+        android:layout_below="@id/name"
+        android:hint="username"
+        android:drawableStart="@drawable/ic_person_outline"
+        />
+
+    <TextView
+        android:id="@+id/age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Age"
+        android:textColor="@color/white"
+        android:layout_below="@id/username_input"
+        android:layout_alignStart="@id/username_input"
+        android:layout_marginTop="10dp"
+        />
+
+    <RadioGroup
+        android:id="@+id/radioage"
+        android:layout_below="@id/age"
+        android:layout_alignStart="@id/age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_gravity="top"
+            >
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="18-25"
+                android:textColor="@color/white"
+                android:buttonTint="@color/white"
+                />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="18-25"
+                android:textColor="@color/white"
+                android:buttonTint="@color/white"
+                />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="18-25"
+                android:textColor="@color/white"
+                android:buttonTint="@color/white"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            >
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="18-25"
+                android:textColor="@color/white"
+                android:buttonTint="@color/white"
+                />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="18-25"
+                android:textColor="@color/white"
+                android:buttonTint="@color/white"
+                />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="18-25"
+                android:textColor="@color/white"
+                android:buttonTint="@color/white"
+                />
+
+
+        </LinearLayout>
+
+        <RadioButton
+            android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="18-25"
+            android:textColor="@color/white"
+            android:buttonTint="@color/white"
+            />
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/height"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Height"
+        android:textColor="@color/white"
+        android:layout_below="@id/radioage"
+        android:layout_alignStart="@id/radioage"
+        android:layout_marginTop="10dp"
+        />
+
+    <RadioGroup
+        android:layout_below="@id/height"
+        android:layout_alignStart="@id/height"
+        android:id="@+id/radioheight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp"
+        >
+        <RadioButton
+            android:layout_marginStart="20dp"
+            android:text="Tall"
+            android:textColor="@color/white"
+            android:buttonTint="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <RadioButton
+            android:layout_marginStart="20dp"
+            android:text="Average"
+            android:textColor="@color/white"
+            android:buttonTint="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <RadioButton
+            android:layout_marginStart="20dp"
+            android:text="Short"
+            android:textColor="@color/white"
+            android:buttonTint="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/homelocinput"
+        android:background="@drawable/textbackground"
+        android:drawableStart="@drawable/ic_home_location"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:textColor="@color/white"
+        android:hint="Home location"
+        android:gravity="center"
+        android:layout_below="@id/radioheight"
+        android:layout_alignStart="@id/radioheight"
+        android:layout_marginVertical="10dp"
+        />
+
+    <TextView
+        android:id="@+id/hobbies_input"
+        android:padding="5dp"
+        android:background="@drawable/textbackground"
+        android:drawableStart="@drawable/ic_painting"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:textColor="@color/white"
+        android:hint="Your Hobbies"
+        android:gravity="center"
+        android:layout_below="@id/homelocinput"
+        android:layout_alignStart="@id/homelocinput"
+        android:layout_marginVertical="10dp"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Next"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="20dp"
+        />
+
+</RelativeLayout>

@@ -65,12 +65,12 @@ public class Login extends AppCompatActivity {
                                     public void onComplete(@NonNull Task<AuthResult> task) {
                                         if (task.isSuccessful()){
                                             Toast.makeText(Login.this,"WELCOM",Toast.LENGTH_SHORT);
-                                            Intent goToMainActivity=new Intent(getApplicationContext(),MainActivity.class);
+                                            Intent goToMainActivity=new Intent(getApplicationContext(),Getdetails.class);
                                             goToMainActivity.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                             startActivity(goToMainActivity);
 
                                         }else{
-                                            String error="filed to login";
+                                            String error=task.getException().toString();
                                             mLogin_error_message.setText(error);
                                             mLogin_error_message.setVisibility(View.VISIBLE);
                                         }

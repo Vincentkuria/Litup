@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -53,12 +54,16 @@ public class Signup extends AppCompatActivity {
                     String error="All sections required";
                     mSignup_error_message.setText(error);
                     mSignup_error_message.setVisibility(View.VISIBLE);
-                }else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-                    String error="Invalid email address";
+                }else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                    String error = "Invalid email address";
                     mSignup_email_error_mess.setText(error);
                     mSignup_email_error_mess.setVisibility(View.VISIBLE);
-                }else if (!(pass == confirmPass)){
+                }else if (!(pass.equals(confirmPass))){
                     String error="please confirm password correctly";
+                    mSignup_error_message.setText(error);
+                    mSignup_error_message.setVisibility(View.VISIBLE);
+                }else if (!(pass.toCharArray().length >=6)){
+                    String error="password should be at least 6 characters";
                     mSignup_error_message.setText(error);
                     mSignup_error_message.setVisibility(View.VISIBLE);
                 }else {
@@ -75,6 +80,8 @@ public class Signup extends AppCompatActivity {
 
                                     }else {
 
+                                        String exe=task.getException().toString();
+                                        Toast.makeText(Signup.this,exe,Toast.LENGTH_LONG).show();
                                         /*****specify the error***/
 
                                     }

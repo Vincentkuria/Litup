@@ -7,7 +7,7 @@
     android:background="@drawable/background"
     tools:context=".Login">
     <ImageView
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:layout_centerHorizontal="true"
         android:id="@+id/loginlogo"
         android:layout_width="100dp"
@@ -19,7 +19,7 @@
         android:id="@+id/logemail"
         android:background="@drawable/logininputtxt"
         android:inputType="textEmailAddress"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="40dp"
         android:layout_below="@id/loginlogo"
         android:layout_centerHorizontal="true"
         android:layout_width="300dp"
@@ -76,7 +76,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="LOGIN"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         />
 
     <TextView
@@ -98,7 +98,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="SIGNUP"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="15dp"
         />
 
     <TextView

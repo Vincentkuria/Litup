@@ -3,34 +3,40 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="5dp"
+    android:paddingHorizontal="5dp"
     android:layout_gravity="center"
     android:layout_margin="40dp"
 
     >
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/hobbies_recycler"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_alignParentTop="true"
+        android:layout_above="@+id/cancle_hobiDialog"
+        android:layout_centerHorizontal="true"
         />
+
     <Button
         android:id="@+id/cancle_hobiDialog"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="cancle "
         android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:text="cancle "
         android:textAllCaps="false"
-        android:layout_below="@id/hobbies_recycler"
+        android:layout_marginTop="5dp"
         />
+
     <Button
         android:id="@+id/hobbies_save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="5dp"
         android:text="save "
         android:textAllCaps="false"
-        android:layout_alignParentEnd="true"
-        android:visibility="invisible"
-        android:layout_below="@id/hobbies_recycler"
-        />
-    </RelativeLayout>
+        android:visibility="invisible" />
+</RelativeLayout>

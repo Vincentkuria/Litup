@@ -24,6 +24,7 @@ public class Splashscreen extends AppCompatActivity {
         ActivityCompat.checkSelfPermission(Splashscreen.this,Manifest.permission.ACCESS_COARSE_LOCATION)==PackageManager.PERMISSION_GRANTED){
             /***CALL THE PROGRAMM TO LOAD DATA*****/
             isLoaded=true;
+            goToMainActivity();
         }else{
 
             mRunnable=new Runnable() {

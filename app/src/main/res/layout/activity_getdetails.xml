@@ -18,20 +18,19 @@
             android:id="@+id/prof_image"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:scaleType="centerCrop"
-            app:shapeAppearanceOverlay="@style/circle_image"
-            android:background="@drawable/ic_account_circle"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
-            />
+            android:background="@drawable/ic_account_circle"
+            android:scaleType="centerCrop"
+            app:shapeAppearanceOverlay="@style/circle_image" />
+
         <ImageView
             android:id="@+id/add_image"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:src="@drawable/ic_plus"
             android:layout_alignEnd="@id/prof_image"
             android:layout_alignBottom="@id/prof_image"
-            />
+            android:src="@drawable/ic_plus" />
 
         <TextView
             android:id="@+id/name"
@@ -46,15 +45,63 @@
 
         <EditText
             android:id="@+id/username_input"
-            android:layout_centerHorizontal="true"
             android:layout_width="300dp"
             android:layout_height="50dp"
-            android:padding="5dp"
-            android:background="@drawable/textbackground"
             android:layout_below="@id/name"
-            android:hint="username"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/textbackground"
             android:drawableStart="@drawable/ic_person_outline"
+            android:hint="username"
+            android:padding="5dp" />
+
+        <TextView
+            android:id="@+id/username_error_alt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="username is required"
+            android:drawableStart="@drawable/ic_error_alart"
+            android:textColor="@color/white"
+            android:layout_below="@id/username_input"
+            android:layout_alignEnd="@id/username_input"
+            android:visibility="gone"
             />
+
+        <TextView
+            android:id="@+id/gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gender"
+            android:textColor="@color/white"
+            android:layout_below="@id/username_input"
+            android:layout_alignStart="@id/username_input"
+            android:layout_marginTop="10dp"
+            />
+
+        <RadioGroup
+            android:layout_below="@id/gender"
+            android:layout_alignStart="@id/gender"
+            android:id="@+id/radiogender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <RadioButton
+                android:layout_marginStart="20dp"
+                android:text="Male"
+                android:textColor="@color/white"
+                android:buttonTint="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <RadioButton
+                android:layout_marginStart="20dp"
+                android:text="Female"
+                android:textColor="@color/white"
+                android:buttonTint="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </RadioGroup>
 
         <TextView
             android:id="@+id/age"
@@ -62,8 +109,8 @@
             android:layout_height="wrap_content"
             android:text="Age"
             android:textColor="@color/white"
-            android:layout_below="@id/username_input"
-            android:layout_alignStart="@id/username_input"
+            android:layout_below="@id/radiogender"
+            android:layout_alignStart="@id/radiogender"
             android:layout_marginTop="10dp"
             />
 
@@ -180,18 +227,17 @@
 
         <TextView
             android:id="@+id/hobbies_input"
-            android:padding="5dp"
-            android:background="@drawable/textbackground"
-            android:drawableStart="@drawable/ic_painting"
             android:layout_width="300dp"
             android:layout_height="50dp"
-            android:textColor="@color/white"
-            android:hint="Your Hobbies"
-            android:gravity="center"
             android:layout_below="@id/radioheight"
             android:layout_alignStart="@id/radioheight"
             android:layout_marginVertical="10dp"
-            />
+            android:background="@drawable/textbackground"
+            android:drawableStart="@drawable/ic_painting"
+            android:gravity="center"
+            android:hint="Select Your Hobbies"
+            android:padding="5dp"
+            android:textColor="@color/white" />
 
         <Button
             android:id="@+id/btn_next"

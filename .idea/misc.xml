@@ -1,9 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="false" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/vinvi/StudioProjects/20first/app/src/main/res/layout/activity_forgotten_pass_reset.xml" value="0.25" />
+        <entry key="..\:/Users/vinvi/StudioProjects/20first/app/src/main/res/layout/activity_getdetails.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/vinvi/StudioProjects/20first/app/src/main/res/layout/activity_login.xml" value="0.12273550724637682" />
+        <entry key="..\:/Users/vinvi/StudioProjects/20first/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/vinvi/StudioProjects/20first/app/src/main/res/layout/activity_profile.xml" value="0.25" />
+        <entry key="..\:/Users/vinvi/StudioProjects/20first/app/src/main/res/layout/activity_splashscreen.xml" value="0.12817028985507245" />
+        <entry key="..\:/Users/vinvi/StudioProjects/20first/app/src/main/res/layout/adview2.xml" value="0.12273550724637682" />
+        <entry key="..\:/Users/vinvi/StudioProjects/20first/app/src/main/res/layout/fragment_groupdate.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/vinvi/StudioProjects/20first/app/src/main/res/layout/fragment_mainpage.xml" value="0.22" />
+        <entry key="..\:/Users/vinvi/StudioProjects/20first/app/src/main/res/layout/location_permission_explain.xml" value="0.12273550724637682" />
+        <entry key="..\:/Users/vinvi/StudioProjects/20first/app/src/main/res/layout/single_recycler3.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/vinvi/StudioProjects/20first/app/src/main/res/layout/single_recycler4.xml" value="0.12273550724637682" />
+        <entry key="..\:/Users/vinvi/StudioProjects/20first/app/src/main/res/layout/single_recycler5.xml" value="0.20416666666666666" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.9490909090909091" />
+      </ProjectState>
+    </option>
   </component>
 </project>

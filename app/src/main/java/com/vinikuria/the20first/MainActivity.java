@@ -24,6 +24,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.LinkedList;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
@@ -45,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
         emailId = Objects.requireNonNull(mAuth.getCurrentUser()).getEmail().replace(".", "").trim();
         databaseReference= FirebaseDatabase.getInstance().getReference();
         Boolean isDataLoaded=new Intent().getBooleanExtra("isloaded",false);
-        Boolean fromGetdetail=new Intent().getBooleanExtra("fromGetdetails",false);
         if (currentUser==null) {
             Intent GoToLoginActivity = new Intent(MainActivity.this, Login.class);
             GoToLoginActivity.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);

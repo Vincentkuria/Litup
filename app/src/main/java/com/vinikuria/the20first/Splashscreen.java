@@ -9,6 +9,8 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Handler;
 
+import java.util.LinkedList;
+
 public class Splashscreen extends AppCompatActivity {
 
     private Handler mHandler;
@@ -23,6 +25,7 @@ public class Splashscreen extends AppCompatActivity {
         if (ActivityCompat.checkSelfPermission(Splashscreen.this, Manifest.permission.ACCESS_FINE_LOCATION)== PackageManager.PERMISSION_GRANTED &&
         ActivityCompat.checkSelfPermission(Splashscreen.this,Manifest.permission.ACCESS_COARSE_LOCATION)==PackageManager.PERMISSION_GRANTED){
             /***CALL THE PROGRAMM TO LOAD DATA*****/
+            LinkedList<String> linkedList =new FetchData(new GetLocation(Splashscreen.this).userLocation()).trimData();
             isLoaded=true;
             goToMainActivity();
         }else{

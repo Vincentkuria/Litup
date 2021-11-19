@@ -162,7 +162,6 @@ public class Getdetails extends AppCompatActivity {
                             .child("Height").setValue(height);
 
                     Intent intent=new Intent(Getdetails.this,MainActivity.class);
-                    intent.putExtra("fromGetdetails",true);
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
 
@@ -275,24 +274,4 @@ public class Getdetails extends AppCompatActivity {
             }
         }
     }
-
-
-/************************************************************************************
-
- databaseReference.child("USERS").addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        for (DataSnapshot dss:snapshot.getChildren()){
-                           Log.d("cool", dss.getKey());
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-                        Log.d("coool",error.toString());
-                    }
-                });
-
- *******************************************************************************/
-
 }

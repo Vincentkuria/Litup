@@ -3,20 +3,38 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/vinvi/StudioProjects/20first/app/src/main/res/drawable/ic_error_alart.xml" value="0.1398148148148148" />
+        <entry key="..\:/Users/vinvi/StudioProjects/20first/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.1361111111111111" />
+        <entry key="..\:/Users/vinvi/StudioProjects/20first/app/src/main/res/drawable/ic_lituplogo1.xml" value="0.75" />
+        <entry key="..\:/Users/vinvi/StudioProjects/20first/app/src/main/res/drawable/ic_lituplogo2.xml" value="0.1398148148148148" />
+        <entry key="..\:/Users/vinvi/StudioProjects/20first/app/src/main/res/drawable/ic_lock_24.xml" value="0.1398148148148148" />
+        <entry key="..\:/Users/vinvi/StudioProjects/20first/app/src/main/res/drawable/ic_logo.xml" value="0.1361111111111111" />
+        <entry key="..\:/Users/vinvi/StudioProjects/20first/app/src/main/res/drawable/ic_search_1_.xml" value="0.1398148148148148" />
+        <entry key="..\:/Users/vinvi/StudioProjects/20first/app/src/main/res/drawable/ic_selected.xml" value="0.1398148148148148" />
+        <entry key="..\:/Users/vinvi/StudioProjects/20first/app/src/main/res/drawable/ic_spinner_1s_200px.xml" value="0.2203125" />
+        <entry key="..\:/Users/vinvi/StudioProjects/20first/app/src/main/res/drawable/postbtn_background.xml" value="0.14907407407407408" />
+        <entry key="..\:/Users/vinvi/StudioProjects/20first/app/src/main/res/drawable/search_background.xml" value="0.14907407407407408" />
+        <entry key="..\:/Users/vinvi/StudioProjects/20first/app/src/main/res/layout/activity_displaystorage.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/vinvi/StudioProjects/20first/app/src/main/res/layout/activity_forgotten_pass_reset.xml" value="0.25" />
         <entry key="..\:/Users/vinvi/StudioProjects/20first/app/src/main/res/layout/activity_getdetails.xml" value="0.33" />
         <entry key="..\:/Users/vinvi/StudioProjects/20first/app/src/main/res/layout/activity_login.xml" value="0.12273550724637682" />
         <entry key="..\:/Users/vinvi/StudioProjects/20first/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/vinvi/StudioProjects/20first/app/src/main/res/layout/activity_messages.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/vinvi/StudioProjects/20first/app/src/main/res/layout/activity_notifications.xml" value="0.19010416666666666" />
         <entry key="..\:/Users/vinvi/StudioProjects/20first/app/src/main/res/layout/activity_profile.xml" value="0.25" />
         <entry key="..\:/Users/vinvi/StudioProjects/20first/app/src/main/res/layout/activity_splashscreen.xml" value="0.12817028985507245" />
+        <entry key="..\:/Users/vinvi/StudioProjects/20first/app/src/main/res/layout/adview1.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/vinvi/StudioProjects/20first/app/src/main/res/layout/adview2.xml" value="0.12273550724637682" />
         <entry key="..\:/Users/vinvi/StudioProjects/20first/app/src/main/res/layout/fragment_groupdate.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/vinvi/StudioProjects/20first/app/src/main/res/layout/fragment_mainpage.xml" value="0.22" />
+        <entry key="..\:/Users/vinvi/StudioProjects/20first/app/src/main/res/layout/fragment_postphotdisplay.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/vinvi/StudioProjects/20first/app/src/main/res/layout/image_placeholder.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/vinvi/StudioProjects/20first/app/src/main/res/layout/location_permission_explain.xml" value="0.12273550724637682" />
         <entry key="..\:/Users/vinvi/StudioProjects/20first/app/src/main/res/layout/single_recycler1.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/vinvi/StudioProjects/20first/app/src/main/res/layout/single_recycler3.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/vinvi/StudioProjects/20first/app/src/main/res/layout/single_recycler4.xml" value="0.12273550724637682" />
         <entry key="..\:/Users/vinvi/StudioProjects/20first/app/src/main/res/layout/single_recycler5.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/vinvi/StudioProjects/20first/app/src/main/res/layout/single_storerecycler.xml" value="0.20416666666666666" />
       </map>
     </option>
   </component>

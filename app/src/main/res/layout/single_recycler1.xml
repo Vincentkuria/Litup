@@ -1,31 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:orientation="horizontal">
+    android:layout_centerInParent="true"
+    android:layout_margin="5dp"
+    >
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/imageView1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:elevation="5dp"
-        android:padding="5dp"
-        android:scaleType="centerCrop"
+        android:padding="2dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
         android:src="@drawable/model"
-        app:shapeAppearanceOverlay="@style/corner_style"
-        app:strokeColor="@color/purple"
-        app:strokeWidth="5dp"
-        android:background="@android:color/transparent"/>
+        app:shapeAppearanceOverlay="@style/corner_style3"
+        android:background="@color/white"/>
+
+
 
     <ImageView
-        android:layout_width="20dp"
-        android:layout_height="20dp"
+        android:id="@+id/online_status"
+        android:layout_width="10dp"
+        android:layout_height="10dp"
         android:src="@drawable/ic_status_dot"
         android:elevation="6dp"
         android:layout_alignTop="@id/imageView1"
-        android:layout_margin="20dp"
+        android:layout_margin="25dp"
         android:layout_alignEnd="@id/imageView1"
-        android:contentDescription="@string/description" />
+        android:contentDescription="@string/description"
+        android:visibility="invisible"/>
 
 </RelativeLayout>

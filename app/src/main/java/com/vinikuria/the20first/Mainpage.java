@@ -1,9 +1,12 @@
 package com.vinikuria.the20first;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +15,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import java.security.PKCS12Attribute;
 
@@ -20,15 +24,19 @@ public class Mainpage extends Fragment {
 ImageView menu,group,search,chat,notification,notifheart,notifdot;
 View searchbar;
 RecyclerView main_recyclerview;
-LinearLayout menu_dropdown;
+static LinearLayout menu_dropdown;
 EditText search_area;
+TextView menu_crt_grp_date,menu_post_photo,menu_settings,menu_logout;
+boolean menuIsUp=false;
+    private ViewPager2 viewPager2;
 
     public Mainpage() {
         // Required empty public constructor
     }
 
-
-
+    public Mainpage(ViewPager2 viewPager2) {
+        this.viewPager2 = viewPager2;
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -39,9 +47,12 @@ EditText search_area;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        MainActivity.in_mainpage=true;
         MainActivity.search_open=false;
         View view=inflater.inflate(R.layout.fragment_mainpage, container, false);
+        menu_crt_grp_date=view.findViewById(R.id.create_group_date);
+        menu_post_photo=view.findViewById(R.id.post_photo);
+        menu_settings=view.findViewById(R.id.settings);
+        menu_logout=view.findViewById(R.id.logout);
         menu=view.findViewById(R.id.menu);
         group=view.findViewById(R.id.group);
         search=view.findViewById(R.id.search);
@@ -53,6 +64,34 @@ EditText search_area;
         searchbar=view.findViewById(R.id.searchbar);
         search_area=view.findViewById(R.id.search_area);
         menu_dropdown=view.findViewById(R.id.menu_dropdown);
+
+        main_recyclerview.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
+        main_recyclerview.setAdapter(new MainpageRecycerAdapter(getActivity()));
+
+        menu_post_photo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                menu_dropdown.setVisibility(View.GONE);
+                menuIsUp=false;
+                startActivity(new Intent(getContext(),DisplaystorageActivity.class));
+            }
+        });
+
+        chat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getContext(),MessagesActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        notification.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getContext(),NotificationsActivity.class);
+                startActivity(intent);
+            }
+        });
 
         search.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,19 +125,27 @@ EditText search_area;
             }
         });
 
+        group.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                viewPager2.setCurrentItem(1);
+            }
+        });
+
         menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                menu_dropdown.setVisibility(View.VISIBLE);
+                if (menuIsUp){
+                    menu_dropdown.setVisibility(View.GONE);
+                    menuIsUp=false;
+                } else{
+                    menu_dropdown.setVisibility(View.VISIBLE);
+                    menuIsUp=true;
+                }
+
             }
         });
 
         return view;
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        MainActivity.in_mainpage=true;
     }
 }

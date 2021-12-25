@@ -10,10 +10,10 @@
         android:id="@+id/searchbar"
         android:layout_width="300dp"
         android:layout_height="40dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
         android:layout_alignParentTop="true"
-        android:background="@drawable/searchbar"/>
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="2dp"
+        android:background="@drawable/searchbar" />
 
     <ImageView
         android:id="@+id/menu"
@@ -132,6 +132,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/create_group_date"
+            android:textSize="20sp"
             android:layout_marginTop="5dp"
             />
         <TextView
@@ -139,18 +140,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/post_photo"
+            android:textSize="20sp"
             android:layout_marginTop="5dp"/>
         <TextView
             android:id="@+id/settings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/settings"
+            android:textSize="20sp"
             android:layout_marginTop="5dp"/>
         <TextView
             android:id="@+id/logout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/logout"
+            android:textSize="20sp"
             android:layout_marginTop="5dp"/>
     </LinearLayout>
 

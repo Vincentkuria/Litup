@@ -22,10 +22,10 @@ public class Splashscreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splashscreen);
 
-        if (ActivityCompat.checkSelfPermission(Splashscreen.this, Manifest.permission.ACCESS_FINE_LOCATION)== PackageManager.PERMISSION_GRANTED &&
-        ActivityCompat.checkSelfPermission(Splashscreen.this,Manifest.permission.ACCESS_COARSE_LOCATION)==PackageManager.PERMISSION_GRANTED){
+        if (!(ActivityCompat.checkSelfPermission(Splashscreen.this, Manifest.permission.ACCESS_FINE_LOCATION)== PackageManager.PERMISSION_GRANTED &&
+        ActivityCompat.checkSelfPermission(Splashscreen.this,Manifest.permission.ACCESS_COARSE_LOCATION)==PackageManager.PERMISSION_GRANTED)){
             /***CALL THE PROGRAMM TO LOAD DATA*****/
-            LinkedList<String> linkedList =new FetchData(new GetLocation(Splashscreen.this).userLocation()).trimData();
+            new GetLocation(Splashscreen.this).userLocation();
             isLoaded=true;
             goToMainActivity();
         }else{

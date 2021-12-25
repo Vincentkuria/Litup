@@ -4,10 +4,13 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
+import androidx.viewpager2.widget.ViewPager2;
 
 public class Viewpager_adapter extends FragmentStateAdapter {
-    public Viewpager_adapter(@NonNull FragmentActivity fragmentActivity) {
+    private ViewPager2 viewPager2;
+    public Viewpager_adapter(@NonNull FragmentActivity fragmentActivity,ViewPager2 viewPager2) {
         super(fragmentActivity);
+        this.viewPager2=viewPager2;
     }
 
     @NonNull
@@ -16,7 +19,7 @@ public class Viewpager_adapter extends FragmentStateAdapter {
         if (position == 1) {
             return new Groupdate();
         }else{
-            return new Mainpage();
+            return new Mainpage(viewPager2);
         }
 
     }

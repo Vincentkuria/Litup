@@ -22,6 +22,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ServerValue;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.LinkedList;
@@ -29,13 +30,11 @@ import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
     private ViewPager2 viewPager2;
-    static Boolean in_mainpage=false;
     static Boolean search_open=false;
     FirebaseAuth mAuth;
     boolean askedPermissionAgain=false;
     DatabaseReference databaseReference;
     String emailId;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,8 +75,46 @@ public class MainActivity extends AppCompatActivity {
             });
         }
 
+        if (currentUser!=null){
+            DatabaseReference connectedRef = FirebaseDatabase.getInstance().getReference(".info/connected");
+            connectedRef.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    boolean connected = snapshot.getValue(Boolean.class);
+                    if (connected) {
+                        databaseReference
+                                .child("USERS")
+                                .child(emailId.toUpperCase())
+                                .child("PROFILE")
+                                .child("Online Status").setValue("true");
+
+                        databaseReference
+                                .child("USERS")
+                                .child(emailId.toUpperCase())
+                                .child("PROFILE")
+                                .child("Online Status").onDisconnect().setValue("false");
+
+                        databaseReference
+                                .child("USERS")
+                                .child(emailId.toUpperCase())
+                                .child("PROFILE")
+                                .child("Last Online").onDisconnect().setValue(ServerValue.TIMESTAMP);
+                    } else {
+                        databaseReference
+                                .child("USERS")
+                                .child(emailId.toUpperCase())
+                                .child("PROFILE")
+                                .child("Online Status").setValue("false");
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                }
+            });
+        }
         viewPager2=findViewById(R.id.viewpager);
-        viewPager2.setAdapter(new Viewpager_adapter(this));
+        viewPager2.setAdapter(new Viewpager_adapter(this,viewPager2));
     }
 
     @Override
@@ -86,6 +123,7 @@ public class MainActivity extends AppCompatActivity {
         if (ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION)== PackageManager.PERMISSION_DENIED &&
                 ActivityCompat.checkSelfPermission(MainActivity.this,Manifest.permission.ACCESS_COARSE_LOCATION)==PackageManager.PERMISSION_DENIED){
             /***CALL THE PROGRAMM TO LOAD DATA with null location *****/
+            StoreLoadedData.null_loc_linkedList=new FetchData(null).trimData();
         }
     }
 
@@ -98,12 +136,21 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        if (in_mainpage && search_open){
-            viewPager2.setAdapter(new Viewpager_adapter(this));
-        }else if (!in_mainpage){
-            viewPager2.setAdapter(new Viewpager_adapter(this));
-        }else{
-            super.onBackPressed();
+        int currentItem=viewPager2.getCurrentItem();
+        switch (currentItem) {
+            case 1:
+                viewPager2.setCurrentItem(0);
+                break;
+            case 0:
+                if (Mainpage.menu_dropdown.getVisibility()==View.VISIBLE){
+                    Mainpage.menu_dropdown.setVisibility(View.INVISIBLE);
+                }else if (search_open){
+                    viewPager2.setAdapter(new Viewpager_adapter(this,viewPager2));
+                }else {
+                    super.onBackPressed();
+                }
+
+                break;
         }
 
     }
@@ -115,6 +162,7 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode==1){
             if (grantResults[0]==PackageManager.PERMISSION_GRANTED){
                 /***CALL THE PROGRAMM TO LOAD DATA*****/
+                new GetLocation(MainActivity.this).userLocation();
             }else if (!askedPermissionAgain && grantResults[0]==PackageManager.PERMISSION_DENIED){
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                     if (shouldShowRequestPermissionRationale(permissions[0])){

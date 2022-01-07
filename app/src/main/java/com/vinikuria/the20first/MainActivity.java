@@ -162,7 +162,7 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode==1){
             if (grantResults[0]==PackageManager.PERMISSION_GRANTED){
                 /***CALL THE PROGRAMM TO LOAD DATA*****/
-                new GetLocation(MainActivity.this).userLocation();
+                //new GetLocation(MainActivity.this).userLocation();
             }else if (!askedPermissionAgain && grantResults[0]==PackageManager.PERMISSION_DENIED){
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                     if (shouldShowRequestPermissionRationale(permissions[0])){

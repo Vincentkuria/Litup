@@ -105,6 +105,7 @@ public class DisplaystorageActivity extends AppCompatActivity {
                                                                         public void onSuccess(Void unused) {
                                                                             StoreLoadedData.linkedList.add(0,emailId.toUpperCase());
                                                                             Intent intent=new Intent(DisplaystorageActivity.this,MainActivity.class);
+                                                                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                                                             startActivity(intent);
                                                                         }
                                                                     });

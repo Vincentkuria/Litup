@@ -90,6 +90,7 @@ public class PostphotdisplayFragment extends Fragment {
                                                                 public void onComplete(@NonNull Task<Void> task) {
                                                                     StoreLoadedData.linkedList.add(emailId.toUpperCase());
                                                                     Intent intent=new Intent(getContext(),MainActivity.class);
+                                                                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                                                     startActivity(intent);
                                                                 }
                                                             });

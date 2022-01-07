@@ -1,11 +1,13 @@
 package com.vinikuria.the20first;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.view.LayoutInflater;
@@ -17,17 +19,21 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import java.security.PKCS12Attribute;
 
 public class Mainpage extends Fragment {
 
-ImageView menu,group,search,chat,notification,notifheart,notifdot;
-View searchbar;
-RecyclerView main_recyclerview;
-static LinearLayout menu_dropdown;
-EditText search_area;
-TextView menu_crt_grp_date,menu_post_photo,menu_settings,menu_logout;
-boolean menuIsUp=false;
+    ImageView menu,group,search,chat,notification,notifheart,notifdot;
+    View searchbar;
+    RecyclerView main_recyclerview;
+    static LinearLayout menu_dropdown;
+    EditText search_area;
+    TextView menu_crt_grp_date,menu_post_photo,menu_settings,menu_logout;
+    FirebaseAuth mAuth=FirebaseAuth.getInstance();
+    SwipeRefreshLayout swipeRefreshLayout;
+    boolean menuIsUp=false;
     private ViewPager2 viewPager2;
 
     public Mainpage() {
@@ -64,9 +70,21 @@ boolean menuIsUp=false;
         searchbar=view.findViewById(R.id.searchbar);
         search_area=view.findViewById(R.id.search_area);
         menu_dropdown=view.findViewById(R.id.menu_dropdown);
-
+        swipeRefreshLayout=view.findViewById(R.id.swipeMainpage);
         main_recyclerview.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
         main_recyclerview.setAdapter(new MainpageRecycerAdapter(getActivity()));
+
+
+        swipeRefreshLayout.setColorSchemeColors(Color.parseColor("#260752"),Color.parseColor("#A600B2"));
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                /**
+                 *
+                 *
+                 * */
+            }
+        });
 
         menu_post_photo.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,6 +111,12 @@ boolean menuIsUp=false;
             }
         });
 
+        menu_logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mAuth.signOut();
+            }
+        });
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

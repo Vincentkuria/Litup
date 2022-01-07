@@ -33,18 +33,18 @@ public class GetLocation {
 
     @SuppressLint("MissingPermission")
     public void userLocation(){
+        Log.d("LitupDebug","permitted3");
         fusedLocationProviderClient= LocationServices.getFusedLocationProviderClient(context);
         LocationManager locationManager=(LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
         if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) || locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)){
+            Log.d("LitupDebug","permitted4");
             fusedLocationProviderClient.getLastLocation().addOnCompleteListener(new OnCompleteListener<Location>() {
                 @Override
                 public void onComplete(@NonNull Task<Location> task) {
+                    Log.d("LitupDebug","permitted5");
                     Location mLocation=task.getResult();
-                    Log.d("cool1", String.valueOf(mLocation));
                     if (mLocation!=null){
                         location =mLocation;
-                        Log.d("cool2", String.valueOf(mLocation));
-                        Log.d("cool2", String.valueOf(location));
                     }else{
                         LocationRequest locationRequest=new LocationRequest()
                                 .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)
@@ -70,7 +70,16 @@ public class GetLocation {
                             .child("PROFILE")
                             .child("Location")
                             .setValue(location);
-                    StoreLoadedData.linkedList=new FetchData(location).trimData();
+                    for (int i=1;i<6;i++){
+                        String a="VINVINCENT254@GMAILCOM"+i;
+                        StoreLoadedData.linkedList.add(a);
+                    }
+                    Log.d("LitupDebug","permitted6");
+                    synchronized (Splashscreen.object){
+                        Splashscreen.object.notify();
+                    }
+
+                    //StoreLoadedData.linkedList=new FetchData(location).trimData();
                 }
             });
         }

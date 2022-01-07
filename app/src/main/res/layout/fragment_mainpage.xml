@@ -107,12 +107,23 @@
         android:paddingHorizontal="10dp"
         android:background="@drawable/search_background" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/main_recyclerview"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeMainpage"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/searchbar"
-        android:layout_marginTop="0dp" />
+        android:outlineAmbientShadowColor="@color/purple"
+        android:layout_marginTop="0dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/main_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
 
     <LinearLayout
         android:id="@+id/menu_dropdown"

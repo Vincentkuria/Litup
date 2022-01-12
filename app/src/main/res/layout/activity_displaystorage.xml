@@ -6,11 +6,25 @@
     android:layout_height="match_parent"
     tools:context=".DisplaystorageActivity">
 
+    <com.github.ybq.android.spinkit.SpinKitView
+        android:id="@+id/storageSpinKit"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        style="@style/SpinKitView.Small.Circle"
+        app:SpinKit_Color="@color/dark_blue"
+        android:layout_gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="gone"
+        />
+
     <FrameLayout
         android:id="@+id/frame"
-        android:elevation="10dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:elevation="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -77,7 +91,38 @@
             android:elevation="6dp"
             android:padding="10dp"
             android:text="Post photo"
-            android:textColor="@color/purple" />
+            android:textColor="@color/purple"
+            />
+
+        <LinearLayout
+            android:id="@+id/showPosting1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="15dp"
+            android:elevation="6dp"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/purple"
+                android:text="Posting..."
+                android:layout_gravity="center"
+                android:gravity="center"
+                />
+            <com.github.ybq.android.spinkit.SpinKitView
+                android:layout_gravity="center"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                style="@style/SpinKitView.Small.Circle"
+                android:padding="20dp"
+                app:SpinKit_Color="@color/dark_blue"
+                />
+        </LinearLayout>
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

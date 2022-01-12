@@ -14,9 +14,12 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.github.ybq.android.spinkit.SpinKitView;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -47,28 +50,69 @@ public class DisplaystorageActivity extends AppCompatActivity {
     static RelativeLayout postRelativeLayout;
     static String emailId;
     FirebaseAuth mAuth;
+    SpinKitView spinKitView;
+    static boolean posting=false;
     static DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference();
     static FirebaseStorage storage=FirebaseStorage.getInstance();
+    LinearLayout showPosting1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_displaystorage);
+        spinKitView=findViewById(R.id.storageSpinKit);
         toolbar=findViewById(R.id.toolbar);
         selectedItem=findViewById(R.id.selectedItem);
         display_storeRecycler=findViewById(R.id.display_storeRecycler);
         postPhoto1=findViewById(R.id.postPhoto1);
         postRelativeLayout=findViewById(R.id.postRelativeLayout);
         mAuth=FirebaseAuth.getInstance();
+        showPosting1=findViewById(R.id.showPosting1);
         emailId = Objects.requireNonNull(mAuth.getCurrentUser()).getEmail().replace(".", "").trim();
 
         toolbar.setTitle("Photos");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        spinKitView.setVisibility(View.VISIBLE);
+
+        Thread thread=new Thread(new Runnable() {
+            @Override
+            public void run() {
+                String[] allPath=StorageUtil.getStorageDirectories(DisplaystorageActivity.this);
+                for (String path:allPath){
+                    File storage=new File(path);
+                    files.addAll(Filefinder.loadFile(storage,fileType));
+                }
+
+            }
+        });
+        thread.start();
+        boolean b=true;
+        while (b){
+            if (!thread.isAlive()){
+                try {
+                    thread.join();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                spinKitView.setVisibility(View.GONE);
+                Log.d("Errvin", String.valueOf(files.size()));
+
+                DisplaystorageRecycler displaystorageRecycler=new DisplaystorageRecycler(files,this);
+                display_storeRecycler.setLayoutManager(new GridLayoutManager(this,4));
+                display_storeRecycler.setAdapter(displaystorageRecycler);
+                b=false;
+            }
+
+        }
+
+
         postPhoto1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                showPosting1.setVisibility(View.VISIBLE);
+                postPhoto1.setVisibility(View.GONE);
                 databaseReference
                         .child("USERS")
                         .child(emailId.toUpperCase())
@@ -97,13 +141,16 @@ public class DisplaystorageActivity extends AppCompatActivity {
                                                                     .child("USERS")
                                                                     .child(emailId.toUpperCase())
                                                                     .child("POSTS")
-                                                                    .push().setValue(postUrl).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                                    .child("POSTED")
+                                                                    .push()
+                                                                    .child("Url").setValue(postUrl).addOnCompleteListener(new OnCompleteListener<Void>() {
                                                                 @Override
                                                                 public void onComplete(@NonNull Task<Void> task) {
                                                                     task.addOnSuccessListener(new OnSuccessListener<Void>() {
                                                                         @Override
                                                                         public void onSuccess(Void unused) {
                                                                             StoreLoadedData.linkedList.add(0,emailId.toUpperCase());
+                                                                            Toast.makeText(DisplaystorageActivity.this, "Image posted successfully", Toast.LENGTH_SHORT).show();
                                                                             Intent intent=new Intent(DisplaystorageActivity.this,MainActivity.class);
                                                                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                                                             startActivity(intent);
@@ -143,32 +190,22 @@ public class DisplaystorageActivity extends AppCompatActivity {
 
 
     @Override
-    protected void onStart() {
-        super.onStart();
-
-        String[] allPath=StorageUtil.getStorageDirectories(this);
-        for (String path:allPath){
-            File storage=new File(path);
-            files.addAll(Filefinder.loadFile(storage,fileType));
-        }
-        Log.d("Errvin", String.valueOf(files.size()));
-
-        DisplaystorageRecycler displaystorageRecycler=new DisplaystorageRecycler(files,this);
-        display_storeRecycler.setLayoutManager(new GridLayoutManager(this,4));
-        display_storeRecycler.setAdapter(displaystorageRecycler);
-    }
-
-    @Override
     public void onBackPressed() {
         Fragment fragment=getSupportFragmentManager().findFragmentById(R.id.frame);
 
-        if (fragment!=null) {
+        if (fragment!=null && posting) {
+            FragmentManager manager=getSupportFragmentManager();
+            manager.beginTransaction().remove(fragment).commit();
+            display_storeRecycler.setVisibility(View.VISIBLE);
+            toolbar.setVisibility(View.VISIBLE);
+            postRelativeLayout.setVisibility(View.GONE);
+        }else if (fragment!=null){
             FragmentManager manager=getSupportFragmentManager();
             manager.beginTransaction().remove(fragment).commit();
             display_storeRecycler.setVisibility(View.VISIBLE);
             toolbar.setVisibility(View.VISIBLE);
             postRelativeLayout.setVisibility(View.VISIBLE);
-        }else{
+        }else {
             super.onBackPressed();
         }
 

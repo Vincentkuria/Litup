@@ -70,10 +70,8 @@ public class GetLocation {
                             .child("PROFILE")
                             .child("Location")
                             .setValue(location);
-                    for (int i=1;i<6;i++){
-                        String a="VINVINCENT254@GMAILCOM"+i;
+                        String a="VINVINCENT254@GMAILCOM";
                         StoreLoadedData.linkedList.add(a);
-                    }
                     Log.d("LitupDebug","permitted6");
                     synchronized (Splashscreen.object){
                         Splashscreen.object.notify();
@@ -82,6 +80,15 @@ public class GetLocation {
                     //StoreLoadedData.linkedList=new FetchData(location).trimData();
                 }
             });
+        }else {
+            /***
+             * give location from database
+             * StoreLoadedData.linkedList=new FetchData().trimData();
+             */
+
+            synchronized (Splashscreen.object){
+                Splashscreen.object.notify();
+            }
         }
     }
 

@@ -2,14 +2,16 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:background="@drawable/background"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <ImageView
         android:id="@+id/imageview2"
         android:layout_width="match_parent"
         android:layout_height="600dp"
-        android:src="@drawable/model"
+        android:contentDescription="@string/description"
         android:scaleType="centerCrop"
-        android:contentDescription="@string/description" />
+        android:src="@drawable/model" />
 
     <View
         android:id="@+id/image_detail"
@@ -52,7 +54,7 @@
             android:contentDescription="@string/description" />
 
         <ImageView
-            android:visibility="invisible"
+            android:visibility="gone"
             android:id="@+id/after_like"
             android:layout_width="55dp"
             android:layout_height="55dp"
@@ -74,59 +76,67 @@
         android:layout_alignTop="@id/imageview2"
         android:layout_alignEnd="@id/imageview2"
         android:layout_margin="5dp"
+        android:visibility="gone"
         android:contentDescription="@string/description" />
 
     <LinearLayout
         android:id="@+id/detils"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_below="@id/profile_image1"
-        android:layout_alignBottom="@id/image_detail"
         android:layout_alignStart="@id/profile_image1"
-        >
+        android:layout_alignBottom="@id/image_detail"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/name_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:fontFamily="sans-serif-condensed-light"
+            android:text="NAME : cate actress"
+            android:textColor="@color/white" />
 
         <TextView
             android:id="@+id/age_detail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="AGE : 25"
-            android:textColor="@color/white"
             android:layout_marginTop="5dp"
             android:fontFamily="sans-serif-condensed-light"
-            />
+            android:text="AGE : 25"
+            android:textColor="@color/white" />
 
         <TextView
             android:id="@+id/height_detail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:fontFamily="sans-serif-condensed-light"
             android:text="HEIGHT : normal"
-            android:textColor="@color/white"
-            android:layout_marginTop="5dp"
-            android:fontFamily="sans-serif-condensed-light"
-            />
-
-        <TextView
-            android:id="@+id/from_detail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="FROM : nairobi"
-            android:textColor="@color/white"
-            android:layout_marginTop="5dp"
-            android:fontFamily="sans-serif-condensed-light"
-            />
+            android:textColor="@color/white" />
 
     </LinearLayout>
 
     <TextView
+        android:id="@+id/viewCount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/like_heart"
-        android:layout_alignEnd="@id/like_heart"
         android:layout_alignStart="@id/like_heart"
-        android:gravity="center"
-        android:textColor="@color/white"
+        android:layout_alignEnd="@id/like_heart"
         android:fontFamily="sans-serif-condensed-light"
+        android:gravity="center"
         android:text="1M+"
-        />
+        android:textColor="@color/white" />
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmerFrame2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            android:id="@+id/shimmerImageView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/error"/>
+    </com.facebook.shimmer.ShimmerFrameLayout>
 </RelativeLayout>

@@ -82,7 +82,7 @@ public class Getdetails extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists() && snapshot.hasChild("Profile image url")){
                     String prfImgURL=snapshot.child("Profile image url").getValue().toString();
-                    Glide.with(Getdetails.this)
+                    Glide.with(getApplicationContext())
                             .load(prfImgURL)
                             .centerCrop()
                             .placeholder(R.drawable.ic_account_circle)

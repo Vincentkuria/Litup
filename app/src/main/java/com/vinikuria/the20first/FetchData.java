@@ -25,6 +25,13 @@ public class FetchData {
         this.location = location;
     }
 
+    public FetchData() {
+        /*
+        fetch location from db.
+        more changes required
+         */
+    }
+
     public LinkedList<String> trimData (){
         return addCloseRelations(sortByLocation(trimByAge(trimByGender())));
     }

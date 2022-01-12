@@ -41,6 +41,7 @@ public class MainpageRecycerAdapter extends RecyclerView.Adapter {
 
     public MainpageRecycerAdapter(Context context) {
         this.context = context;
+        notifyDataSetChanged();
     }
 
     @Override
@@ -71,11 +72,11 @@ public class MainpageRecycerAdapter extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         Log.d("LitupDebug","onBindViewHolder");
-        SingleRecycler singleRecycler= (SingleRecycler) holder;
+
         if (StoreLoadedData.linkedList.get(position).equals(ADVIEW)){
 
         }else {
-
+            SingleRecycler singleRecycler= (SingleRecycler) holder;
             Shimmer shimmer=new Shimmer.ColorHighlightBuilder()
                     .setFixedHeight(200)
                     .setHighlightColor(Color.parseColor("#FCD3FF"))
@@ -92,26 +93,37 @@ public class MainpageRecycerAdapter extends RecyclerView.Adapter {
                 database.getReference()
                         .child("USERS")
                         .child(user)
-                        .child("POSTS").limitToLast(1).addListenerForSingleValueEvent(new ValueEventListener() {
+                        .child("POSTS")
+                        .child("POSTED")
+                        .limitToLast(1).addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        HashMap<String,String> hashMap= (HashMap<String, String>) snapshot.getValue();
-                        Iterator iterator=hashMap.entrySet().iterator();
-                        Map.Entry mapEntry= (Map.Entry) iterator.next();
-                        String s3 = (String) mapEntry.getValue();
-                        Glide.with(context).load(s3).listener(new RequestListener<Drawable>() {
-                            @Override
-                            public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
-                                return false;
-                            }
+                        
 
-                            @Override
-                            public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
-                                singleRecycler.shimmerFrameLayout.stopShimmer();
-                                singleRecycler.shimmerFrameLayout.setVisibility(View.GONE);
-                                return false;
+                        if (snapshot.exists()){
+                            String url = null;
+                            for (DataSnapshot s :
+                                    snapshot.getChildren()) {
+                                for (DataSnapshot sn :
+                                        s.getChildren()) {
+                                    url= (String) sn.getValue();
+                                }
                             }
-                        }).placeholder(shimmerDrawable).into(singleRecycler.imageView1);
+                            Glide.with(context).load(url).listener(new RequestListener<Drawable>() {
+                                @Override
+                                public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
+                                    return false;
+                                }
+
+                                @Override
+                                public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
+                                    singleRecycler.shimmerFrameLayout.stopShimmer();
+                                    singleRecycler.shimmerFrameLayout.setVisibility(View.GONE);
+                                    return false;
+                                }
+                            }).placeholder(shimmerDrawable).into(singleRecycler.imageView1);
+                        }
+
                     }
 
                     @Override
